@@ -1,0 +1,69 @@
+========================================================================
+                      ⚔️ KURUKSHETRA APP CHEATSHEET ⚔️
+========================================================================
+This file contains all the commands you need to run, test, and build
+your app in the future. Keep it handy!
+
+------------------------------------------------------------------------
+1. 🚀 TO START LOCAL DEVELOPMENT (Testing changes on Mac/Simulator)
+------------------------------------------------------------------------
+When you want to write new code or test changes locally, open your
+terminal in the "Kurukshetra" folder and run:
+
+    npx expo start -c
+
+(Note: The '-c' flag clears the cache so you don't get old ghost errors).
+Once the server starts and you see the QR code:
+- Press 'i' to open the iOS Simulator on your Mac.
+- Or open Xcode -> click the "Play ▶" button to install on real iPhone.
+
+------------------------------------------------------------------------
+2. 📱 TO UPDATE THE APP AFTER ADDING NEW LIBRARIES (Native Rebuild)
+------------------------------------------------------------------------
+If you ever install a new heavy library (like a new camera package,
+new fonts, or video player), you MUST rebuild the native iOS/Android
+folders. Run:
+
+    npx expo prebuild --clean
+
+After this finishes, you can run the app again from Xcode (for iOS)
+or run `npx expo start -c` as usual.
+
+------------------------------------------------------------------------
+3. 📦 TO BUILD FOR YOUR FRIENDS (Creating Installable Apps)
+------------------------------------------------------------------------
+You don't need the local server running for this! Just run these
+commands to send your code to Expo Cloud for building.
+
+👉 For Android (.apk file to share on WhatsApp/Telegram):
+    eas build -p android --profile preview
+
+👉 For iOS (Requires $99 Apple Developer Account):
+    eas build -p ios --profile preview
+
+👉 For Google Play Store (Production .aab file):
+    eas build -p android --profile production
+
+(Once the build finishes, it will give you a direct download link and QR code in the terminal).
+
+------------------------------------------------------------------------
+4. 🔐 WHERE ARE MY API KEYS STORED?
+------------------------------------------------------------------------
+All your sensitive keys (Firebase, Agora Video, Anthropic Claude AI)
+are safely hidden inside the `.env` file in the root folder.
+If you ever need to change the AI model or Firebase project, just
+open the `.env` file, edit the keys, and save it.
+
+------------------------------------------------------------------------
+5. 🛠️ HOW TO PUSH CODE TO GITHUB (Save your progress)
+------------------------------------------------------------------------
+Whenever you finish a coding session, save it to the cloud so you
+never lose your work. Run these sequentially:
+
+    git add .
+    git commit -m "Describe what changes you made today"
+    git push origin main
+
+========================================================================
+"Sab energy ka khel hai." Keep building, Warrior! 🔥
+========================================================================

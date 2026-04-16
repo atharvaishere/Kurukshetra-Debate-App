@@ -1,20 +1,26 @@
+import React from 'react';
 import { StatusBar } from 'expo-status-bar';
-import { StyleSheet, Text, View } from 'react-native';
+import { SafeAreaProvider } from 'react-native-safe-area-context';
+import { useFonts, Inter_400Regular, Inter_700Bold, Inter_900Black } from '@expo-google-fonts/inter';
+import { Cinzel_700Bold } from '@expo-google-fonts/cinzel';
+import AppNavigator from './src/navigation/AppNavigator';
 
 export default function App() {
+  let [fontsLoaded] = useFonts({
+    Inter_Regular: Inter_400Regular,
+    Inter_Bold: Inter_700Bold,
+    Inter_Black: Inter_900Black,
+    Cinzel_Bold: Cinzel_700Bold,
+  });
+
+  if (!fontsLoaded) {
+    return null; // App will show default splash screen until fonts are loaded
+  }
+
   return (
-    <View style={styles.container}>
-      <Text>Open up App.js to start working on your app!</Text>
-      <StatusBar style="auto" />
-    </View>
+    <SafeAreaProvider>
+      <StatusBar style="light" />
+      <AppNavigator />
+    </SafeAreaProvider>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-});
