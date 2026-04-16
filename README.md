@@ -87,3 +87,6 @@ npx expo run:android
 This project is open-source and available under the MIT License.
 
 *Built with ❤️ in 3 Hours. "Sab energy ka khel hai."*
+
+
+Last updated: 2026-04-16 •
